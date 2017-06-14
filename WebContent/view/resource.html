@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>数据分析平台</title>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="fontawesome/css/font-awesome.min.css"> 
+	<link rel="stylesheet" href="fontawesome/css/font-awesome-ie7.min.css"/>
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<style>
+	   .three{
+	      FONT-SIZE: 12pt; 
+		  FONT-FAMILY: 宋体;
+		  text-align:center;
+		  color:#121212;
+		  background-color:#E0EEEE
+		  }
+	   .dbase{
+		  text-align:center; 
+		  }
+		
+	</style>
+	</head>
+    
+	<body>
+	<div id="page">	
+	<!--  banner  -->
+	<nav class="fh5co-nav" role="navigation" style="background-color:#D1E9FC;">
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="index.html">数据分析平台</a></div>
+					</div>
+					<div class="col-xs-10 text-left menu-1">
+						<ul>
+							<li><a href="data.html">数据分析</a></li>
+							<li><a href="resource.html">资源目录管理</a></li>
+							<li><a href="algorithm.html">算法管理</a></li>
+							<li class="has-dropdown">
+								<a href="job.html">编辑器管理</a>
+							</li>
+							 <li><i class="icon-user" style="position:absolute;right:50px;margin:5px 5px;">&nbsp;张三</i></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+</div>
+	
+    
+    <section class="panel" style="margin-bottom:60px;">
+		<div class="form-group">
+	  		<label for="index"><a href="index.html">首页></a></label>
+	  		<label for="userList" style="color:#121212">资源目录管理</label>
+        </div>
+        <div class="form-group">
+            <p style="font-size:24px;color:#000;padding-top:20px;">数据库列表</p>
+            <button onclick="NewDatabase()" class="btn btn-primary-1">新建数据库</button>
+            <!--
+            <button onclick="ModifyDatabase()" class="btn btn-primary-1">修改数据库</button>
+            <button onclick="DeleteDatabase()" class="btn btn-primary-1">删除数据库</button>
+            -->	     
+            <table border=1 style="width:90%;margin-top:20px;">
+                <tr class="three">
+                   <th class="dbase">数据库</th>
+                   <th class="dbase">描述</th>
+                   <th class="dbase">用户名</th>
+                   <th class="dbase">密码</th>
+                   <th class="dbase">IP</th>
+                   <th class="dbase">驱动程序</th>
+                   <th class="dbase">编辑</th>
+                </tr>
+                <tr align=center>
+                   <td>数据库1</td>
+                   <td>产品1</td>
+                   <td>用户1</td>
+                   <td>******</td>
+                   <td>192.168.1.1</td>
+                   <td></td>
+                   <td><i class="icon-upload">连接</i>&nbsp;<i class="icon-pencil">修改</i>&nbsp;<i class="icon-cross">删除</i></td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-group">
+            <p style="font-size:24px;color:#000;padding-top:20px;">数据表列表</p>
+            <button onclick="NewDatabase()" class="btn btn-primary-1">新建数据表</button>
+            <table border=1 style="width:90%;margin-top:20px;">
+                <tr  class="three">
+                   <th class="dbase">数据表</th>
+                   <th class="dbase">描述</th>
+                   <th class="dbase">可操作用户</th>
+                </tr>
+                <tr align=center>
+                   <td>数据表1</td>
+                   <td>用户表，记录平台信息</td>
+                   <td>用户1</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+        
+    <!-- footer-->
+	<div class="footer">
+		<p class="footertxt">copyright@2017.DataAnalysis</p>
+	</div>
+      
+        
+	<!--  锚点 ---->
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up" style="padding-right:20px"></i></a>
+	</div>
+    
+    
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- Carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
+

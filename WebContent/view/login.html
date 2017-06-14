@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>数据分析平台</title>
+
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<link rel="shortcut icon" href="favicon.ico">
+<link
+	href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/loginstyle.css">
+
+
+</head>
+
+<body class="style-3">
+	<div class="container">
+		<div class="row">
+			<h1 align="center">数据分析平台</h1>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-push-8">
+				<!-- Start Sign In Form -->
+				<form class="fh5co-form animate-box"
+					data-animate-effect="fadeInRight">
+					<h2>登录</h2>
+					<div class="form-group">
+						<label for="username" class="sr-only">用户名</label> <input
+							type="text" class="form-control" id="username" placeholder="用户名"
+							autocomplete="off">
+					</div>
+					<div class="form-group">
+						<label for="password" class="sr-only">密码</label> <input
+							type="password" class="form-control" id="password"
+							placeholder="密码" autocomplete="off">
+					</div>
+					<div class="form-group">
+						<p>
+							还没有注册？ <a href="register.html">注册</a>
+						</p>
+					</div>
+					<div class="form-group">
+						<input type="button" value="登录" class="btn btn-primary" id="login" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- jQuery -->
+	<script src="/dataAnalysis/view/js/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="/dataAnalysis/view/js/bootstrap.min.js"></script>
+	<!-- Placeholder -->
+	<script src="/dataAnalysis/view/js/jquery.placeholder.min.js"></script>
+	<!-- Waypoints -->
+	<script src="/dataAnalysis/view/js/jquery.waypoints.min.js"></script>
+	<!-- Main JS -->
+	<script type="text/javascript">
+		$(function() {
+			$("#login").click(function() {
+				var Username = $("#username").val().trim();
+				var Upassword = $("#password").val().trim();
+				// alert(Username+"    "+Upassword);
+				if (Username == "") {
+					alert("用户名不能为空！");
+					return;
+				}
+				if (Upassword == "") {
+					alert("密码不能为空！");
+					return;
+				}
+				$.ajax({
+					method : 'POST',
+					url : '/dataAnalysis/user/login',//此处的路径是由需要调用的controlloer在config注册的路由名加上要用的方法名一起确定的
+					data : {
+						"Username" : Username,
+						"Upassword" : Upassword
+					}
+				}).success(function(data) {
+					if (data.resultCode == "-1") {//session失效
+						top.document.location.href = "/dataAnalysis";
+						//alert("你还未登录，请先登录！");
+					} else {
+						//alert("登录成功");
+						if(Username == "admin")
+						{
+							window.location.href='userList.html';//系统管理员登陆后调转到userlist.html
+						}
+						else{
+							window.location.href='index.html';//用户登陆成功后默认跳转到index.html
+						}
+					}
+				}).error(function() {
+					alert("登录失败，请重新登录！");
+					//$(window).reload;//页面重新加载
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>
+

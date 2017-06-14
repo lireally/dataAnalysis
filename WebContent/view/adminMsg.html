@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>数据分析平台</title>
+	
+    <!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+	<div id="page">	
+	<!--  banner  -->
+	<nav class="fh5co-nav" role="navigation" style="background-color:#D1E9FC;">
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="index.html">数据分析平台</a></div>
+					</div>
+					<div class="col-xs-10 text-left menu-1" >
+						<ul>
+							<li><a href="data.html">数据分析</a></li>
+							<li><a href="resource.html">资源目录管理</a></li>
+							<li><a href="algorithm.html">算法管理</a></li>
+							<li><a href="job.html">编辑器管理</a></li>
+                            <li><i class="icon-user" style="position:absolute;right:50px;margin:5px 5px;">&nbsp;系统管理员</i></li>
+						</ul>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</nav>
+    
+    <!-- 用户信息展示  --->
+	<section class="panel">
+		<div class="form-group">
+	  		<label for="index"><a href="index.html">首页></a></label>
+            <label for="index"><a href="userlist.html">用户管理></a></label>
+	  		<label for="userList" style="color:#121212">用户信息</label>
+            <ul style="padding-top:10px;">
+        		<li class="btn btn-primary-1" style="position:absolute; left:100px;">修改信息</li>
+				<li class="btn btn-primary-1" style="position:absolute; left:240px;">保存信息</li>
+                <li class="btn btn-primary-1" style="position:absolute; left:380px;">审核通过</li>
+                <li class="btn btn-primary-1" style="position:absolute; left:520px;">审核驳回</li>
+				<li class="btn btn-primary-1" style="position:absolute; left:660px;">账户停用</li>
+        	</ul>
+   		</div>
+        
+		<br />
+		<h2 style="padding-left:23px;padding-top:20px;">张三</h2>
+			<div class="row">
+				<div class="bio-row">
+					<p><span style="margin-left:37px;">电话 ：</span> 18123453424</p>
+				</div>
+				<div class="bio-row">
+					<p><span style="margin-left:37px;">部门： </span>研发部，数据中心2部</p>
+				</div>
+				<div class="bio-row">
+					<p><span style="margin-left:37px;">用户状态：</span>待审核</p>
+				</div>
+			</div>
+	</section>
+    
+    <!--  修改密码 
+    <section class="panel">
+		<div class="form-group">
+	  		<h4 style="color:#121212">修改密码</h4>
+            <ul style="padding-top:10px;">
+				<li class="btn btn-primary-1" style="position:absolute; left:90px;">保存</li>
+        	</ul>
+   		</div>
+		<br />
+		<div class="row">
+			<div class="bio-row" style="padding-top:20px;">
+				<span style="margin-left:37px;">原 密 码 ：</span><input /></p>
+			</div>
+			<div class="bio-row"> 
+				<p><span style="margin-left:37px;">新 密 码 ：</span><input /></p>
+			</div>
+			<div class="bio-row">
+				<p><span style="margin-left:37px;">确认密码：</span><input /></p>
+			</div>
+		</div>
+	</section>    -->
+    
+    <!--  用户权限赋予  -->
+    <section class="panel" style="margin-bottom:60px;">
+		<div class="form-group">
+	  		<h4 style="color:#121212">用户权限</h4>
+   		</div>
+		<br/>
+		<div class="row">
+			<div class="bio-row">
+				<p><span style="margin-left:37px;">部门 ：</span>
+                <input type="text" value=" 研发部，数据中心2部"/></p>
+			</div>
+		</div>
+        <button onclick="NewDatabase()" class="btn btn-primary-1" style="margin-left:20px;">添加可操作数据表</button>
+        <table style="margin:22px;width:90%;border:1px solid #666;align:center;">
+			<tr> 
+               <th align="center" class="tabletitle">可操作数据库</th>
+               <th align="center" class="tabletitle">可操作数据表</th>
+               <th align="center" class="tabletitle">描述</th>
+            </tr>
+		 	<!--后期需要实现从数据库读取用户权限的操作---->
+            <tr>
+              <td align="center" class="tablelist" valign="middle">database1</td>
+              <td align="center" class="tablelist" valign="middle">table1</td>
+              <td align="center" class="tablelist" valign="middle">产品花费支出明细</td> 
+            </tr>
+            <tr>
+              <td align="center" class="tablelist" valign="middle">database1</td>
+              <td align="center" class="tablelist" valign="middle">table2</td>
+              <td align="center" class="tablelist" valign="middle">产品销售日情况</td> 
+            </tr> 
+            <tr>
+              <td align="center" class="tablelist" valign="middle">database1</td>
+              <td align="center" class="tablelist" valign="middle">table3</td>
+              <td align="center" class="tablelist" valign="middle">产品销售周情况</td> 
+            </tr>
+            <tr>
+              <td align="center" class="tablelist" valign="middle">database1</td>
+              <td align="center" class="tablelist" valign="middle">table4</td>
+              <td align="center" class="tablelist" valign="middle">产品销售月情况</td> 
+            </tr> 
+	 	</table>
+	</section>
+    
+    <!-- footer-->
+	<div class="footer">
+		<p class="footertxt">copyright@2017.DataAnalysis</p>
+	</div>
+    
+    <!--  锚点 ---->
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up" style="padding-right:20px"></i></a>
+	</div>
+					
+</body>
+</html>

@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>数据分析平台</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free HTML5 Template by FreeHTML5.co" />
+<meta name="keywords"
+	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+
+
+
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<link rel="shortcut icon" href="favicon.ico">
+
+<link
+	href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300'
+	rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/loginstyle.css">
+
+<!-- Modernizr JS -->
+<script src="js/modernizr-2.6.2.min.js"></script>
+
+<!-- 日期选择 -->
+<!-- <link rel="stylesheet" href="../../themes/base/jquery.ui.all.css"> -->
+<!-- <script src="../../jquery-1.8.3.js"></script> -->
+<!-- <script src="../../ui/jquery.ui.core.js"></script> -->
+<!-- <script src="../../ui/jquery.ui.widget.js"></script> -->
+<!-- <script src="../../ui/jquery.ui.datepicker.js"></script> -->
+<!-- <link rel="stylesheet" href="../demos.css"> -->
+<!-- <script>  -->
+<!-- $( "#datepicker" ).datepicker({ -->
+<!-- changeMonth: true, -->
+<!-- changeYear: true -->
+<!-- }); -->
+<!-- </script>  -->
+
+</head>
+<body class="style-3">
+
+	<div class="container">
+		<div class="row">
+			<h1 align="center">数据分析平台</h1>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-push-8">
+				<!-- Start Sign In Form -->
+				<form class="fh5co-form animate-box"
+					data-animate-effect="fadeInRight" id="form">
+					<h2 style="text-align: center;">用户注册</h2>
+					<div class="form-group">
+						<label for="username" float="left">用&nbsp;&nbsp;户&nbsp;&nbsp;名:</label>
+						&nbsp;&nbsp; <input type="text" id="username" name="username">
+					</div>
+					<div class="form-group">
+						<label for="name" float="left">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</label>
+						&nbsp;&nbsp; <input type="text" id="name" name="name">
+					</div>
+					<div class="form-group">
+						<label for="sex" float="right">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</label>
+						&nbsp;&nbsp; <input type="radio" id="sex" value="man" name="sex"> 男
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="sex"
+							value="woman" name="sex">女
+					</div>
+
+					<div class="form-group">
+						<label for="department">部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门:</label>
+						&nbsp;&nbsp;
+						<!-- 此处后期需要从数据库中选取-->
+						<select size="1" name="department" id="department">
+							<option>分析部</option>
+							<option>教务部</option>
+							<option>精算部</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="telephone">电话号码:</label> &nbsp;&nbsp; <input
+							type="text" id="telephone" name="telephone">
+					</div>
+					<div class="form-group">
+						<label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+						&nbsp;&nbsp; <input type="password" id="password" name="password">
+					</div>
+					<div class="form-group">
+						<label for="re-password">确认密码:</label> &nbsp;&nbsp; <input
+							type="password" id="repassword" name="repassword">
+					</div>
+					<div class="form-group" style="padding: 0 0 0 200px;">
+					    <input type="button" value="注册" class="btn btn-primary" id="register" />
+					</div>
+				</form>
+				<!-- END Sign In Form -->
+
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Placeholder -->
+	<script src="js/jquery.placeholder.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.flexslider-min.js"></script>
+	<script src="js/jquery.countTo.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Main JS -->
+	<script src="js/main.js"></script>
+	<script type="text/javascript">
+       $(function() {
+    	   $("#username").blur(function()
+    	   {
+    		   var Username=$("#username").val().trim();
+    		   $.ajax({
+    			   method:'Post',
+    			   url:'/dataAnalysis/user/checkUsernameUnique',
+    			   data:{
+    				   'Username':Username
+    			   }
+    		   }).success(function(data){
+    			   if(data.resultCode == "100002")
+    			    {
+    				   $(this).parent().css("border-colcor","red");
+    				   alert("该用户名已存在，请重新输入");
+    				   return;
+    			    }
+    			   else if(data.resultCode == "100001")
+    				{
+    				   //alert("该用户名唯一，允许注册");
+    				   return;
+    				}
+    		   }).error(function(){
+    			   alert("保证用户名唯一性的功能失效!");   
+    		   });
+    	   })
+       
+    	   $("#repassword").blur(function()
+    	   {
+    		   var Upassword=$("#password").val().trim();
+    		   var ReUpassword=$("#repassword").val().trim();
+    		   if(Upassword == ReUpassword){
+    			   //alert("确认密码成功，请点击注册");
+    			   return;
+    		   }else{
+    			   alert("两次输入密码不一致，请再次确认");
+    			   $(this).parent().css("border-colcor","red");
+    			   return;
+    		   }
+    	   })
+       
+    	   $("#register").click(function(){
+    		   if($("#username").val() == "")
+    		   {
+    			   alert("用户名不能为空！");
+    			   return;
+    		   }
+    		   if($("#name").val()== "")
+    		   {
+    			   alert("姓名不能为空！");
+    			   return;
+    		   }
+    		   if($("#sex").val() == "")
+    		   {
+    			   alert("请选择性别！");
+    			   return;
+    		   }
+    		   if($("#department").val() == "")
+    		   {
+    			   alert("请选择部门！");
+    			   return;
+    		   }
+    		   if($("#telephone").val() == "")
+    		   {
+    			   alert("为方便联系您，请输入电话号码！");
+    			   return;
+    		   }
+    		   if($("#password").val() == "")
+    		   {
+    			   alert("密码不能为空！");
+    			   return;
+    		   }
+    		   if($("#repassword").val() == "")
+    		   {
+    			   alert("请确认密码!");
+    			   return;
+    		   }
+    		   var params=$('#form').serialize();
+    		   params=decodeURIComponent(params,true);
+    		   $.ajax({
+    			   type:'POST',
+    			   url: '/dataAnalysis/user/register',
+    			   dataType:'JSON',
+    			   data:params
+    		   }).success(function(data){
+    			   if(data.resultCode == "100003")
+    		       { 
+    				   //alert("注册成功，请登录!");
+    			       window.location.href='login.html';//注册成功后暂时先定为跳转到登录界面，后期尽量实现直接登录成功
+    		       }
+    			   else if(data.result == "100004")
+    			   {
+    				   alert("注册失败，请重新注册！");
+    				   return;
+    			   }
+    		   }).error(function(data){
+    			   alert("注册功能失效！");
+    			   return;
+    		   });
+    	   })
+    	   
+       })
+       
+    </script>
+</body>
+</html>
+
